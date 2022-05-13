@@ -16,8 +16,8 @@ using std::string;
 
 string GetAddress(string firstName, string lastName,
                        string streetAddress, string city,
-                       string province, string firstPostalCode,
-                       string lastPostalCode, string aptNumber = "") {
+                       string province, string postalCode,
+                       string aptNumber = "") {
     // return the address in capital letters
 
     string address;
@@ -26,8 +26,7 @@ string GetAddress(string firstName, string lastName,
     if (aptNumber.size() != 0) {
         address = address + aptNumber + "-";
     }
-    address = address+streetAddress+'\n'+city+" "+province+"  "+
-              firstPostalCode + " " + lastPostalCode;
+    address = address+streetAddress+'\n'+city+" "+province+" "+ postalCode;
 
     return address;
 }
@@ -51,23 +50,22 @@ main() {
     transform(question.begin(), question.end(), question.begin(), ::tolower);
     if (question == "y" || question == "yes") {
         cout << "Enter your apartment number: ";
-        cin >> aptNumber;
+        getline(cin, aptNumber, '\n');
     }
     cout << "Enter your city: ";
-    cin >> city;
+    getline(cin, city, '\n');
     cout << "Enter your province: ";
-    cin >> province;
+    getline(cin, province, '\n');
     cout << "Enter your postal code: ";
-    cin >> postalCode;
+    getline(cin, postalCode, '\n');
     cout << "\n";
 
     if (aptNumber != "") {
         address = GetAddress(firstName, lastName, streetAddress, city,
-                             province, firstPostalCode, lastPostalCode,
-                             aptNumber);
+                             province, postalCode, aptNumber);
     } else {
         address = GetAddress(firstName, lastName, streetAddress, city,
-                             province, firstPostalCode, lastPostalCode);
+                             province, postalCode);
     }
     transform(address.begin(), address.end(), address.begin(), ::toupper);
     cout << address;
