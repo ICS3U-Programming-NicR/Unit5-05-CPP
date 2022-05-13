@@ -37,8 +37,7 @@ main() {
     // this function gets a users address and prints out their formal address
 
     string firstName, lastName, streetAddress, question;
-    string aptNumber = "", city, province, firstPostalCode;
-    string lastPostalCode, address;
+    string aptNumber = "", city, province, address, postalCode;
 
     // input
     cout << "Enter your first name: ";
@@ -58,10 +57,8 @@ main() {
     cin >> city;
     cout << "Enter your province: ";
     cin >> province;
-    cout << "Enter your first postal code: ";
-    cin >> firstPostalCode;
-    cout << "Enter your last postal code: ";
-    cin >> lastPostalCode;
+    cout << "Enter your postal code: ";
+    cin >> postalCode;
     cout << "\n";
 
     if (aptNumber != "") {
